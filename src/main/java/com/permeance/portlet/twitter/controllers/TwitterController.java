@@ -45,7 +45,7 @@ public class TwitterController {
     }
 
     @ActionMapping("twitter")
-    public void getReport(ActionRequest request, ActionResponse response, ModelMap model,
+    public void getTwitter(ActionRequest request, ActionResponse response, ModelMap model,
             @ModelAttribute("twitterForm") TwitterForm twitterForm) {
 
         try {
