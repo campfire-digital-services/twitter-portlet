@@ -15,10 +15,11 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 /**
- * ConfigurationActionImpl to call the twitter configuration page Override the
- * liferay struts ConfigurationAction
+ * ConfigurationActionImpl to call the twitter configuration page Override the liferay struts
+ * ConfigurationAction
  * 
  * @author rkumar
+ * @author chun
  */
 
 public class ConfigurationActionImpl implements ConfigurationAction {
@@ -31,9 +32,12 @@ public class ConfigurationActionImpl implements ConfigurationAction {
 
         PortletPreferences prefs = PortletPreferencesFactoryUtil.getPortletSetup(actionRequest, portletResource);
 
+        String conflink = actionRequest.getParameter("conflink");
+        if (conflink == null || conflink.length() == 0) {
+            conflink = TwitterPortlet.DEFAULT_LINK;
+        }
         // Read, validate, and then set form parameters as portlet prerferences
-        prefs.setValue("username", actionRequest.getParameter("username"));
-        prefs.setValue("numpost", actionRequest.getParameter("numpost"));
+        prefs.setValue("conflink", conflink);
 
         prefs.store();
 
@@ -41,13 +45,12 @@ public class ConfigurationActionImpl implements ConfigurationAction {
     }
 
     public String render(PortletConfig config, RenderRequest renderRequest, RenderResponse renderResponse) throws Exception {
-    	
-    	String portletResource = ParamUtil.getString(renderRequest, "portletResource");
+
+        String portletResource = ParamUtil.getString(renderRequest, "portletResource");
         PortletPreferences prefs = PortletPreferencesFactoryUtil.getPortletSetup(renderRequest, portletResource);
 
-        renderRequest.setAttribute("username", prefs.getValue("username", ""));
-        renderRequest.setAttribute("numpost", prefs.getValue("numpost", "5"));
-        return "/WEB-INF/jsp/twitter/config.jsp";
+        renderRequest.setAttribute("conflink", prefs.getValue("conflink", TwitterPortlet.DEFAULT_LINK));
+        return TwitterPortlet.CONFIG_PAGE;
     }
 
 }

@@ -4,6 +4,7 @@
 <liferay-portlet-app>
 	<portlet>
 		<portlet-name>twitter-portlet</portlet-name>
+		<configuration-action-class>com.permeance.portlet.twitter.controllers.ConfigurationActionImpl</configuration-action-class> 
 		<instanceable>true</instanceable>
 	</portlet>
 	
