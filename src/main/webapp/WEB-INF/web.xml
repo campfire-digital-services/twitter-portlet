@@ -4,36 +4,6 @@
 	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationcontext.xml</param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>	
-	
-	<servlet>
-		<servlet-name>ViewRendererServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Spring Dispatcher Servlet</servlet-name>
-		<servlet-class>com.liferay.portal.kernel.servlet.PortletServlet</servlet-class>
-		<init-param>
-			<param-name>portlet-class</param-name>
-			<param-value>org.springframework.web.portlet.DispatcherPortlet</param-value>
-		</init-param>
-		<load-on-startup>0</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ViewRendererServlet</servlet-name>
-		<url-pattern>/WEB-INF/servlet/view</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Spring Dispatcher Servlet</servlet-name>
-		<url-pattern>/twitter-portlet/*</url-pattern>
-	</servlet-mapping>	
-	
 	<jsp-config>
 		<taglib>
 			<taglib-uri>http://java.sun.com/portlet</taglib-uri>
@@ -44,24 +14,12 @@
 			<taglib-location>/WEB-INF/tld/liferay-portlet.tld</taglib-location>
 		</taglib>
 		<taglib>
-			<taglib-uri>http://www.springframework.org/tags/form</taglib-uri>
-			<taglib-location>/WEB-INF/tld/spring-form.tld</taglib-location>
-		</taglib>
-		<taglib>
 			<taglib-uri>http://liferay.com/tld/aui</taglib-uri>
 			<taglib-location>/WEB-INF/tld/liferay-aui.tld</taglib-location>
 		</taglib>
 		<taglib>
 			<taglib-uri>http://liferay.com/tld/portlet</taglib-uri>
 			<taglib-location>/WEB-INF/tld/liferay-portlet-ext.tld</taglib-location>
-		</taglib>
-		<taglib>
-			<taglib-uri>http://liferay.com/tld/security</taglib-uri>
-			<taglib-location>/WEB-INF/tld/liferay-security.tld</taglib-location>
-		</taglib>
-		<taglib>
-			<taglib-uri>http://liferay.com/tld/theme</taglib-uri>
-			<taglib-location>/WEB-INF/tld/liferay-theme.tld</taglib-location>
 		</taglib>
 		<taglib>
 			<taglib-uri>http://liferay.com/tld/ui</taglib-uri>

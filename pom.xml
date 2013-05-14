@@ -78,7 +78,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<com.liferay.portal.version>6.1.10</com.liferay.portal.version>
+		<com.liferay.portal.version>6.1.1</com.liferay.portal.version>
 		<org.springframework.version>3.0.6.RELEASE</org.springframework.version>
 	</properties>
 	
